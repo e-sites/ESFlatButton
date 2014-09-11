@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name           = "ESFlatButton"
-  s.version        = "1.0"
+  s.version        = "1.0.1"
   s.platform       = :ios, "6.0"
   s.summary        = "A beveled flat button"
   s.author         = { "Bas van Kuijck" => "bas@e-sites.nl" }
