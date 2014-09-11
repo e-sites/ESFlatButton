@@ -112,7 +112,7 @@ void _ESFlatButtonCGContextAddRoundRect(CGContextRef context, CGRect rect, float
             self.outerBevelHeight = 3.0f;
         }
         if (_backgroundColor == nil) {
-            _backgroundColor = kWhiteColor;
+            _backgroundColor = [UIColor whiteColor];
         }
         _secondDraw = YES;
     }
