@@ -8,5 +8,5 @@ Pod::Spec.new do |s|
   s.homepage       = "https://github.com/e-sites/ESFlatButton"
   s.source         = { :git => "https://github.com/e-sites/ESFlatButton.git", :tag => s.version.to_s }  
   s.source_files   = "Classes"
-  s.requires_arc   = false
+  s.requires_arc   = true
 end
