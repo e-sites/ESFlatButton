@@ -76,28 +76,30 @@ void _ESFlatButtonCGContextAddRoundRect(CGContextRef context, CGRect rect, float
 - (void)setOuterBevelHeight:(CGFloat)anOuterBevelHeight
 {
     _outerBevelHeight = anOuterBevelHeight;
+    [self _correctInsets];
     [self setNeedsDisplay];
+}
+
+- (void)_correctInsets
+{
+   if (self.isHighlighted) {
+        [self setContentEdgeInsets:UIEdgeInsetsMake(self.outerBevelHeight, 0, 0, 0)];
+    } else {
+        [self setContentEdgeInsets:UIEdgeInsetsMake(0, 0, self.outerBevelHeight, 0)];
+    }
 }
 
 - (void)setHighlighted:(BOOL)highlighted
 {
     [super setHighlighted:highlighted];
-    if (self.isHighlighted) {
-        [self setContentEdgeInsets:UIEdgeInsetsMake(self.outerBevelHeight, 0, 0, 0)];
-    } else {
-        [self setContentEdgeInsets:UIEdgeInsetsMake(0, 0, self.outerBevelHeight, 0)];
-    }
+    [self _correctInsets];
     [self setNeedsDisplay];
 }
 
 - (void)setSelected:(BOOL)selected
 {
     [super setSelected:selected];
-    if (self.isSelected && self.isPressedWhenSelected) {
-        [self setContentEdgeInsets:UIEdgeInsetsMake(self.outerBevelHeight, 0, 0, 0)];
-    } else {
-        [self setContentEdgeInsets:UIEdgeInsetsMake(0, 0, self.outerBevelHeight, 0)];
-    }
+    [self _correctInsets];
     [self setNeedsDisplay];
 }
 
